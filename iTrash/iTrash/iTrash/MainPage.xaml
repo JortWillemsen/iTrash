@@ -15,32 +15,6 @@
            FontAttributes="Bold"
            Margin="20,40,0,30"/>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Entry
-            Placeholder="Zoek op naam"
-            x:Name="searchBar"
-            Margin="10,0,0,0"
-            Grid.Column="0"
-            />
-
-            <Button
-            Text="Search"
-            WidthRequest="120"
-            Grid.Column="1"
-            Margin="10,0"
-            Clicked="Button_Clicked_1"
-            />
-        </Grid>
-
-        
-
         <ListView
             ItemsSource="{Binding Containers}"
             ItemSelected="OnListViewItemSelected"

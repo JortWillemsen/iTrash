@@ -65,23 +65,5 @@ namespace iTrash
         {
             Application.Current.Properties["HostIP"] = hostipentry.Text;
         }
-
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-            List<Container> specific_list = new List<Container>();
-
-            specific_list = containerAgent.SearchContainer("?name=" + searchBar.Text);
-
-            if(specific_list.Count > 0)
-            {
-                Navigation.PushModalAsync(new Page1(specific_list[0]));
-            }
-            else
-            {
-                DisplayAlert("ERROR", "Kan geen container vinden met die naam.", "OK");
-            }
-
-            
-        }
     }
 }

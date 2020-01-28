@@ -12,7 +12,7 @@ namespace iTrash
     {
         List<Container> containerList = new List<Container>();
 
-        string hostIp = "192.168.1.40";
+        string hostIp = "145.89.78.60";
 
         bool? hasConnection;
 
@@ -93,14 +93,6 @@ namespace iTrash
         {
             containerList = MakeRequest("/all");
             return containerList;
-        }
-
-        public List<Container> SearchContainer(string type)
-        {
-            List<Container> specificList = new List<Container>();
-            specificList = MakeRequest(type);
-
-            return specificList;
         }
     }
 }
