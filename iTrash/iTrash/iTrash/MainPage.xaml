@@ -61,7 +61,9 @@
             x:Name="hostipentry"
             TextChanged="hostipentry_TextChanged"
             HorizontalTextAlignment="Center"
-            WidthRequest="150"/>
+            WidthRequest="150"
+            ReturnType="Go"
+            Keyboard="Numeric"/>
 
         <Label Text="Connecting to service..." 
            HorizontalOptions="Center"
