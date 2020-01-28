@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="iTrash.MainPage">
+
+    <StackLayout>
+        <Label Text="iTrash" 
+           HorizontalOptions="Start"
+           VerticalOptions="Start"
+           TextColor="Black"
+           FontSize="40"
+           FontAttributes="Bold"
+           Margin="20,40,0,30"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Entry
+            Placeholder="Zoek op naam"
+            x:Name="searchBar"
+            Margin="10,0,0,0"
+            Grid.Column="0"
+            />
+
+            <Button
+            Text="Search"
+            WidthRequest="120"
+            Grid.Column="1"
+            Margin="10,0"
+            Clicked="Button_Clicked_1"
+            />
+        </Grid>
+
+        
+
+        <ListView
+            ItemsSource="{Binding Containers}"
+            ItemSelected="OnListViewItemSelected"
+            ItemTapped="OnListViewItemTapped"
+            IsPullToRefreshEnabled="False"
+            x:Name="cLV">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding name}"
+                                   Grid.Row="0"
+                                   MinimumHeightRequest="20"
+                                   Grid.Column="0"
+                                   FontAttributes="Bold"
+                                   />
+                            
+                            <ProgressBar
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   HeightRequest="20"
+                                   ProgressColor="Green"
+                                   Progress="{Binding used_capacity}"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+
+        <Entry
+            Placeholder="IP or host name"
+            HorizontalOptions="Center"
+            Margin="40,0"
+            x:Name="hostipentry"
+            TextChanged="hostipentry_TextChanged"
+            HorizontalTextAlignment="Center"
+            WidthRequest="150"/>
+
+        <Label Text="Connecting to service..." 
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           TextColor="Black"
+           FontSize="15"
+           Margin="10,0,10,0"
+           x:Name="connectedText"/>
+
+        <Button Text="Refresh"
+                Clicked="Button_Clicked"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End"
+                BackgroundColor="Green"
+                BorderWidth="0"
+                TextColor="White"
+                Padding="0,0,0,0"
+                CornerRadius="0"
+               
+                Margin="0, 0, 0, 0"/>
+
+    </StackLayout>
+
+    
+
+</ContentPage>
